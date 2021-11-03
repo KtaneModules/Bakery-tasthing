@@ -213,7 +213,7 @@ public class bakery : MonoBehaviour
                                 continue;
                             var thisVertiSquare = allSquares[containingSquareIx + vertOffsets[j]];
                             for (int k = 0; k < 4; k++)
-                                if (otherRegulars.Select(x => regularCookieNames[x]).Contains(thisVertiSquare[k]))
+                                if (otherRegulars.Select(x => allCookieNames[x]).Contains(thisVertiSquare[k]))
                                     value2 = true;
                         }
                     }
@@ -226,7 +226,7 @@ public class bakery : MonoBehaviour
                                 continue;
                             var thisHoriSquare = allSquares[containingSquareIx + horiOffsets[j]];
                             for (int k = 0; k < 4; k++)
-                                if (otherRegulars.Select(x => regularCookieNames[x]).Contains(thisHoriSquare[k]))
+                                if (otherRegulars.Select(x => allCookieNames[x]).Contains(thisHoriSquare[k]))
                                     value2 = true;
                         }
                     }
@@ -304,7 +304,7 @@ public class bakery : MonoBehaviour
                             continue;
                         var thisHoriSquare = allSquares[containingNotSquareIx + horiOffsetsNot[j]];
                         for (int k = 0; k < 4; k++)
-                            if (otherNots.Select(x => notCookieNames[x]).Contains(thisHoriSquare[k]))
+                            if (otherNots.Select(x => allCookieNames[x]).Contains(thisHoriSquare[k]))
                                 value2Not = true;
                     }
                     solution[i] = value1Not ^ value2Not;
