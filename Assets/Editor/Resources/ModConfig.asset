@@ -14,8 +14,9 @@ MonoBehaviour:
   id: bakery
   title: Bakery
   author: TasThing
-  description: Even in the face of disaster, we are willing to sacrifice our own elders...
-    for cookies.
-  version: 1.0
+  description: "Even in the face of disaster, we are willing to sacrifice our own
+    elders... for cookies.\r\n\r\nModule idea and implementation by TasThing.\r\n\r\n[url=https://ktane.timwi.de/HTML/Bakery.html]Manual
+    HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Bakery.pdf]Manual PDF[/url]"
+  version: 1.0.1
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 321e8828eb0c5e74383fdbf42ba0a8cb, type: 3}

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="js/ktane-utils.js"></script>
     <style>
-        table {
+        .dark table, table {
             border: none;
             margin-left: auto;
             margin-right: auto;
@@ -19,9 +19,8 @@
             width: 1cm;
             height: 1cm;
         }
-        .square-table img {
-            padding: none;
-        }
+        .square-table img { padding: none; }
+        .dark img.ondark { filter: invert(90%); }
     </style>
 </head>
 <body>
@@ -41,7 +40,7 @@
                     <li>The validity of every cookie that can be found in a 2×2 grid below is determined with the following rules. Every other cookie is part of a special set, each one having their own rules detailed below the 2×2 grids.</li>
                     <ul>
                         <li>Create two boolean values. The first one is true if there are any cookies in this cookie’s square also present on the module besides this cookie.</li>
-                        <li>If this cookie is in the top-left or bottom-right of its square, the second value is true if there are any cookies in the square above or below this cookie’s square. If it’s in either of the other two positions, the second value is true if there are any cookies in the square to the left or right of this cookie’s square.</li>
+                        <li>If this cookie is in the top-left or bottom-right of its square, the second value is true if there are any cookies in the square above or below this cookie’s square present on the module. If it’s in either of the other two positions, the second value is true if there are any cookies in the square to the left or right of this cookie’s square present on the module.</li>
                         <li>Run these two values through an XOR gate (returns true if exactly one input is true). If the result is true, this cookie is valid.</li>
                         <li>Note that squares at the bottom of one page are considered adjacent to squares at the top of the next page and vice versa, but the set of squares does not loop around in any other way.</li>
                     </ul>
@@ -255,7 +254,7 @@
                     </tr>
                     <tr>
                         <td><img src='img/Bakery/Regular/cornflake cookie.png' title='Cornflake cookie'></td>
-                        <td><img src='img/Bakery/Regular/tofu cookie.png' title='Tofu cookie'></td>
+                        <td><img src='img/Bakery/Regular/cookie dough.png' title='Cookie dough'></td>
                         <td class='empty'></td>
                         <td><img src='img/Bakery/Regular/lebkuchen.png' title='Lebkuchen'></td>
                         <td><img src='img/Bakery/Regular/aachener printen.png' title='Aachener Printen'></td>
@@ -427,34 +426,34 @@
                     <tr>
                         <td><img src='img/Bakery/Branded/caramoa.png' title='Caramoa'></td>
                         <td><img src='img/Bakery/Branded/sagalong.png' title='Sagalong'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(270deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(270deg)'></td>
                         <td><img src='img/Bakery/Branded/shortfoil.png' title='Shortfoil'></td>
                         <td><img src='img/Bakery/Branded/win mint.png' title='Win mint'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(315deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(315deg)'></td>
                     </tr>
                     <tr>
                         <td><img src='img/Bakery/Branded/fig glutton.png' title='Fig glutton'></td>
                         <td><img src='img/Bakery/Branded/loreol.png' title='Loreol'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm;'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm;'></td>
                         <td><img src='img/Bakery/Branded/jaffa cake.png' title='Jaffa cake'></td>
                         <td><img src="img/Bakery/Branded/grease's cup.png" title='Grease’s cup'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(45deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(45deg)'></td>
                     </tr>
                     <tr>
                         <td><img src='img/Bakery/Branded/digits.png' title='Digits'></td>
                         <td><img src='img/Bakery/Branded/lombardia cookie.png' title='Lombardia cookie'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(90deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(90deg)'></td>
                         <td><img src='img/Bakery/Branded/bastenaken cookie.png' title='Bastenaken cookie'></td>
                         <td><img src='img/Bakery/Branded/Festivity Loops.png' title='Festivity loops'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(135deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(135deg)'></td>
                     </tr>
                     <tr>
                         <td><img src='img/Bakery/Branded/havabreaks.png' title='Havabreaks'></td>
                         <td><img src='img/Bakery/Branded/zilla wafers.png' title='Zilla wafers'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(180deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(180deg)'></td>
                         <td><img src='img/Bakery/Branded/dim dam.png' title='Dim dam'></td>
                         <td><img src='img/Bakery/Branded/pokey.png' title='Pokey'></td>
-                        <td><img src='img/Bakery/arrow.png' style='width: 1cm; transform: rotate(225deg)'></td>
+                        <td><img src='img/Bakery/arrow.png' class="ondark" style='width: 1cm; transform: rotate(225deg)'></td>
                     </tr>
                 </table>
                 <h3>Danish Butter Cookies:</h3>
