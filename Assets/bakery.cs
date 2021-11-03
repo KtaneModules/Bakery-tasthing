@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using KModkit;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 public class bakery : MonoBehaviour
 {
@@ -51,9 +52,53 @@ public class bakery : MonoBehaviour
     private int moduleId;
     private bool moduleSolved;
 
+    #region ModSettings
+    bakerySettings Settings = new bakerySettings();
+#pragma warning disable 414
+    private static Dictionary<string, object>[] TweaksEditorSettings = new Dictionary<string, object>[]
+    {
+      new Dictionary<string, object>
+      {
+        { "Filename", "Bakery Settings.json"},
+        { "Name", "Bakery" },
+        { "Listings", new List<Dictionary<string, object>>
+        {
+          new Dictionary<string, object>
+          {
+            { "Key", "HardMode" },
+            { "Text", "Enable hard mode (names will not be displayed)?"}
+          }
+        }}
+      }
+    };
+#pragma warning restore 414
+
+    private class bakerySettings
+    {
+        public bool HardMode = false;
+    }
+    #endregion
+
     private void Awake()
     {
         moduleId = moduleIdCounter++;
+        var modConfig = new modConfig<bakerySettings>("Bakery Settings");
+        Settings = modConfig.read();
+
+        var missionDesc = KTMissionGetter.Mission.Description;
+        if (missionDesc != null)
+        {
+            var regex = new Regex(@"\[Bakery\] (true|false)");
+            var match = regex.Match(missionDesc);
+            if (match.Success)
+            {
+                string[] options = match.Value.Replace("[Bakery] ", "").Split(',');
+                bool[] values = new bool[options.Length];
+                for (int i = 0; i < options.Length; i++)
+                    values[i] = options[i] == "true" ? true : false;
+                Settings.HardMode = values[0];
+            }
+        }
         plateRenders = plates.Select(x => x.GetComponent<Renderer>()).ToArray();
         foreach (KMSelectable plate in plates)
         {
@@ -62,7 +107,7 @@ public class bakery : MonoBehaviour
             plate.OnHighlight += delegate ()
             {
                 plateRenders[ix].material.color = highlightColor;
-                SetHoverText(allCookieNames[ix]);
+                SetHoverText(Settings.HardMode ? "???" : allCookieNames[ix]);
             };
             plate.OnHighlightEnded += delegate ()
             {
@@ -71,6 +116,7 @@ public class bakery : MonoBehaviour
             };
         }
         chalkboard.OnInteract += delegate () { Submit(); return false; };
+        modConfig.write(Settings);
     }
 
     private void Start()
