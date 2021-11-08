@@ -385,13 +385,14 @@ public class bakery : MonoBehaviour
             solution[i] = cookieIndices[i] % 2 == 0 ? pointedValue : !pointedValue;
             loggingStrings.Add(string.Format("{0} ({1}): This cookie points in the direction {2} at {3} which has the value {4}. This cookie is also on the {5}, so the value is {6} and this cookie is {7}.", coordinates[i], allCookieNames[i], directionNames[direction], coordinates[pointIndices[i][direction]], pointedValue.ToString().ToLowerInvariant(), cookieIndices[i] % 2 == 0 ? "left" : "right", cookieIndices[i] % 2 == 0 ? "kept the same" : "inverted", solution[i] ? "valid" : "invalid"));
         }
+        var platesToToggle = new List<int>();
         for (int i = 0; i < 12; i++)
         {
             if (allCookieCategories[i] != CookieCategory.teaBiscuit)
                 continue;
             var crookedTeeth = RegionInfo.CurrentRegion.DisplayName == "United Kingdom";
             foreach (int ix in adjacentIndices[i])
-                solution[ix] = !solution[ix];
+                platesToToggle.Add(ix);
             var edgeworkConditions = new bool[]
             {
                 bomb.GetIndicators().Any(ind => bomb.GetSerialNumberLetters().Intersect(ind).Any()),
@@ -406,6 +407,8 @@ public class bakery : MonoBehaviour
             solution[i] = edgeworkConditions[cookieIndices[i]];
             loggingStrings.Add(string.Format("{0} ({1}): The validities of these cookies are toggled: {2}. The bomb was{3} started in the UK, and according to the edgework condition, this cookie is {4}.", coordinates[i], allCookieNames[i], adjacentIndices[i].Select(x => coordinates[x]).Join(", "), crookedTeeth ? "" : "n't", solution[i] ? "valid" : "invalid"));
         }
+        foreach (int ix in platesToToggle)
+            solution[ix] = !solution[ix];
         if (!solution.Any(b => b))
             goto tryAgain;
         foreach (string str in loggingStrings)
