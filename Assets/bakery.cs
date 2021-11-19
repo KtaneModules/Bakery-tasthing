@@ -47,6 +47,7 @@ public class bakery : MonoBehaviour
     private string[] allCookieNames = new string[12];
     private bool[] solution = new bool[12];
     private bool[] selected = new bool[12];
+    private int lastHighlightedButton = -1;
 
     private static int moduleIdCounter = 1;
     private int moduleId;
@@ -106,6 +107,9 @@ public class bakery : MonoBehaviour
             plate.OnInteract += delegate () { PressPlate(ix); return false; };
             plate.OnHighlight += delegate ()
             {
+                if (lastHighlightedButton == ix)
+                    return;
+                lastHighlightedButton = ix;
                 plateRenders[ix].material.color = highlightColor;
                 SetHoverText(Settings.HardMode ? "???" : allCookieNames[ix]);
             };
@@ -160,14 +164,14 @@ public class bakery : MonoBehaviour
     tryAgain:
 
         // Assignment
+        oopsyDaisy:
         cookieIndices = Enumerable.Repeat(-1, 12).ToArray();
         allCookieCategories = Enumerable.Repeat(CookieCategory.notSet, 12).ToArray();
         for (int i = 0; i < 12; i++)
         {
-        whoopsiePickAnotherOne:
             var thisCategory = probabilities.PickRandom();
             if (allCookieCategories.Count(x => x == thisCategory) == maxCounts[(int)thisCategory])
-                goto whoopsiePickAnotherOne;
+                goto oopsyDaisy;
             allCookieCategories[i] = thisCategory;
 
             switch (thisCategory)
@@ -420,6 +424,7 @@ public class bakery : MonoBehaviour
     {
         if (moduleSolved)
             return;
+        plates[ix].AddInteractionPunch(.25f);
         audio.PlaySoundAtTransform("click", plates[ix].transform);
         selected[ix] = !selected[ix];
     }
