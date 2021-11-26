@@ -163,8 +163,8 @@ public class bakery : MonoBehaviour
         var loggingStrings = new List<string>();
     tryAgain:
 
-        // Assignment
-        oopsyDaisy:
+    // Assignment
+    oopsyDaisy:
         cookieIndices = Enumerable.Repeat(-1, 12).ToArray();
         allCookieCategories = Enumerable.Repeat(CookieCategory.notSet, 12).ToArray();
         for (int i = 0; i < 12; i++)
@@ -340,25 +340,13 @@ public class bakery : MonoBehaviour
                     for (int j = 0; j < 3; j++)
                         allNotCookieSquares[j] = notCookieNames.Skip(4 * j).Take(4).ToArray();
                     var containingNotSquareIx = Array.IndexOf(allNotCookieSquares, allNotCookieSquares.First(x => x.Contains(notCookieNames[cookieIndices[i]])));
-                    var containingNotSquare = allNotCookieSquares.First(x => x.Contains(notCookieNames[cookieIndices[i]]));
+                    var containingNotSquare = allNotCookieSquares[containingNotSquareIx];
                     var otherNots = new List<int>();
                     for (int j = 0; j < 12; j++)
                         if (allCookieCategories[j] == CookieCategory.notCookie && j != i)
                             otherNots.Add(j);
-                    var value1Not = otherNots.Select(x => allCookieNames[x]).Any(x => containingNotSquare.Contains(x));
-                    var value2Not = false;
-                    var horiOffsetsNot = new int[] { -1, 1 };
-                    for (int j = 0; j < 2; j++)
-                    {
-                        if ((containingNotSquareIx == 0 && j == 0) || (containingNotSquareIx == 2 && j == 1))
-                            continue;
-                        var thisHoriSquare = allSquares[containingNotSquareIx + horiOffsetsNot[j]];
-                        for (int k = 0; k < 4; k++)
-                            if (otherNots.Select(x => allCookieNames[x]).Contains(thisHoriSquare[k]))
-                                value2Not = true;
-                    }
-                    solution[i] = value1Not ^ value2Not;
-                    loggingStrings.Add(string.Format("{0} ({1}): {2} XOR {3} = {4}. This cookie is {5}.", coordinates[i], allCookieNames[i], value1Not, value2Not.ToString().ToLowerInvariant(), solution[i].ToString().ToLowerInvariant(), solution[i] ? "valid" : "invalid"));
+                    solution[i] = allNotCookieSquares.Select(arr => arr[Array.IndexOf(containingNotSquare, allCookieNames[i])]).Count(str => allCookieNames.Contains(str)) == 1;
+                    loggingStrings.Add(string.Format("{0} ({1}): This menu item does{2} have a unique position within the squares, so it is {3}valid.", coordinates[i], allCookieNames[i], solution[i] ? "" : "n't", solution[i] ? "" : "in"));
                     break;
                 case CookieCategory.seasonal:
                     var months = new int[] { 12, 10, 2 };
@@ -369,7 +357,7 @@ public class bakery : MonoBehaviour
                     if (relevantMonth)
                     {
                         solution[i] = weekday != cookieIndices[i] % 7;
-                        loggingStrings.Add(string.Format("{0} {{1}): It is {2}, and the day of the week is {3}. This cookie is {4}valid.", coordinates[i], allCookieNames[i], monthNames[cookieIndices[i] / 7], DateTime.Now.DayOfWeek, solution[i] ? "" : "in"));
+                        loggingStrings.Add(string.Format("{0} ({1}): It is {2}, and the day of the week is {3}. This cookie is {4}valid.", coordinates[i], allCookieNames[i], monthNames[cookieIndices[i] / 7], DateTime.Now.DayOfWeek, solution[i] ? "" : "in"));
                     }
                     else
                     {
