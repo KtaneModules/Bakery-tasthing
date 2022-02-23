@@ -177,17 +177,17 @@ public class bakery : MonoBehaviour
             switch (thisCategory)
             {
                 case CookieCategory.regular:
-                    cookieIndices[i] = Enumerable.Range(0, 124).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 124).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.regular).Contains(x)).PickRandom();
                     allCookieNames[i] = regularCookieNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = regularCookieTextures[cookieIndices[i]];
                     break;
                 case CookieCategory.teaBiscuit:
-                    cookieIndices[i] = Enumerable.Range(0, 6).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 6).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.teaBiscuit).Contains(x)).PickRandom();
                     allCookieNames[i] = teaBiscuitNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = teaBiscuitTextures[cookieIndices[i]];
                     break;
                 case CookieCategory.chocolateButterBiscuit:
-                    cookieIndices[i] = Enumerable.Range(0, 11).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 11).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.chocolateButterBiscuit).Contains(x)).PickRandom();
                     allCookieNames[i] = chocolateButterBiscuitNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = chocolateButterBiscuitTextures[cookieIndices[i]];
                     break;
@@ -195,22 +195,22 @@ public class bakery : MonoBehaviour
                     // Branded cookies need to be assigned after every other cookie so that they don't point at other branded cookies or tea biscuits
                     break;
                 case CookieCategory.danishButter:
-                    cookieIndices[i] = Enumerable.Range(0, 5).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 5).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.danishButter).Contains(x)).PickRandom();
                     allCookieNames[i] = danishButterCookieNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = danishButterCookieTextures[cookieIndices[i]];
                     break;
                 case CookieCategory.macaron:
-                    cookieIndices[i] = Enumerable.Range(0, 9).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 9).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.macaron).Contains(x)).PickRandom();
                     allCookieNames[i] = macaronNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = macaronTextures[cookieIndices[i]];
                     break;
                 case CookieCategory.notCookie:
-                    cookieIndices[i] = Enumerable.Range(0, 12).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 12).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.notCookie).Contains(x)).PickRandom();
                     allCookieNames[i] = notCookieNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = notCookieTextures[cookieIndices[i]];
                     break;
                 case CookieCategory.seasonal:
-                    cookieIndices[i] = Enumerable.Range(0, 21).Where(x => !cookieIndices.Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 21).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.seasonal).Contains(x)).PickRandom();
                     allCookieNames[i] = seasonalCookieNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = seasonalCookieTextures[cookieIndices[i]];
                     break;
@@ -226,7 +226,7 @@ public class bakery : MonoBehaviour
                     potentialDirections.Add(j);
             try
             {
-                cookieIndices[i] = Enumerable.Range(0, 16).Where(x => potentialDirections.Contains(x / 2)).PickRandom();
+                cookieIndices[i] = Enumerable.Range(0, 16).Where(x => potentialDirections.Contains(x / 2) && !Enumerable.Range(0, 12).Where((_, ix) => allCookieCategories[ix] == CookieCategory.branded).Contains(x)).PickRandom();
             }
             catch (InvalidOperationException)
             {
