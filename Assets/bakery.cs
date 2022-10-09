@@ -463,7 +463,7 @@ public class bakery : MonoBehaviour
         chalkboardText.transform.parent = oldParent;
         chalkboardText.transform.localPosition = new Vector3(0f, -0.51f, -0.118f);
         chalkboardText.transform.localEulerAngles = new Vector3(90f, 180f, 0f);
-        chalkboardText.transform.localScale = new Vector3(-.0015f * (bounds.x > 125f ? 125f / bounds.x : 1f) * 5f, -0.01852761f, -0.0015f * 5f);
+        chalkboardText.transform.localScale = new Vector3(-.0015f * (bounds.x > 125f ? 125f / bounds.x : 1f) * 5f, -0.01852761f, -1000f);
     }
 
     private enum CookieCategory
