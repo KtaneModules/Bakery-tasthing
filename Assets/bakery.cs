@@ -32,9 +32,9 @@ public class bakery : MonoBehaviour
     public Texture[] notCookieTextures;
     public Texture[] seasonalCookieTextures;
 
-    private static string[] regularCookieNames = new string[124] { "Chocolate chip cookie", "Plain cookie", "Sugar cookie", "Oatmeal raisin cookie", "Peanut butter cookie", "Coconut cookie", "Almond cookie", "Hazelnut cookie", "Walnut cookie", "Cashew cookie", "White chocolate cookie", "Milk chocolate cookie", "Macadamia nut cookie", "Double-chip cookie", "White chocolate macadamia nut cookie", "All-chocolate cookie", "Dark chocolate-coated cookie", "White chocolate-coated cookie", "Eclipse cookie", "Zebra cookie", "Snickerdoodle", "Stroopwafel", "Macaroon", "Empire biscuit", "Madeleine", "Palmier", "Palet", "Sablé", "Pure black chocolate cookie", "Pure white chocolate cookie", "Ladyfinger", "Tuile", "Chocolate-stuffed biscuit", "Checker cookie", "Butter cookie", "Cream cookie", "Gingersnap", "Cinnamon cookie", "Vanity cookie", "Cigar", "Pinwheel cookie", "Shortbread biscuit", "Millionaires' shortbread", "Caramel cookie", "Pecan sandy", "Moravian spice cookie", "Anzac biscuit", "Buttercake", "Pink biscuit", "Whole grain cookie", "Candy cookie", "Big chip cookie", "One chip cookie", "Sprinkles cookie", "Peanut butter blossom", "No-bake cookie", "Florentine", "Chocolate crinkle", "Maple cookie", "Persian rice cookie", "Norwegian cookie", "Crispy rice cookie", "Ube cookie", "Butterscotch cookie", "Speculaa", "Chocolate oatmeal cookie", "Molasses cookie", "Biscotti", "Waffle cookie", "Bourbon biscuit", "Mini-cookies", "Whoopie pie", "Caramel wafer biscuit", "Chocolate chip mocha cookie", "Earl Grey cookie", "Chai tea cookie", "Corn syrup cookie", "Icebox cookies", "Graham crackers", "Hardtack", "Cornflake cookie", "Cookie dough", "Gluten-free cookie", "Russian bread cookie", "Lebkuchen", "Aachener Printen", "Canistrelli", "Nice biscuit", "French pure butter cookie", "Petit buerre", "Nanaimo bar", "Berger cookie", "Chinsuko", "Panda koala biscuits", "Putri salju", "Milk cookie", "Kruidnoten", "Marie biscuit", "Meringue cookie", "Yogurt cookie", "Thumbprint cookie", "Pizzelle", "Granola cookie", "Ricotta cookie", "Roze koeken", "Peanut butter cup cookie", "Sesame cookie", "Taiyaki", "Vanillekipferl", "Battenberg biscuit", "Rosette cookie", "Gangmaker", "Welsh cookie", "Raspberry cheesecake cookie", "Bokkenpootje", "Fat rascal", "Elderwort biscuit", "Bakeberry cookie", "Duketater cookie", "Green yeast digestives", "Wheat slim", "Ischler cookies", "Custard cream", "Matcha cookie" };
+    private static string[] regularCookieNames = new string[140] { "Chocolate chip cookie", "Plain cookie", "Sugar cookie", "Oatmeal raisin cookie", "Peanut butter cookie", "Coconut cookie", "Almond cookie", "Hazelnut cookie", "Walnut cookie", "Cashew cookie", "White chocolate cookie", "Milk chocolate cookie", "Macadamia nut cookie", "Double-chip cookie", "White chocolate macadamia nut cookie", "All-chocolate cookie", "Dark chocolate-coated cookie", "White chocolate-coated cookie", "Eclipse cookie", "Zebra cookie", "Snickerdoodle", "Stroopwafel", "Macaroon", "Empire biscuit", "Madeleine", "Palmier", "Palet", "Sablé", "Pure black chocolate cookie", "Pure white chocolate cookie", "Ladyfinger", "Tuile", "Chocolate-stuffed biscuit", "Checker cookie", "Butter cookie", "Cream cookie", "Gingersnap", "Cinnamon cookie", "Vanity cookie", "Cigar", "Pinwheel cookie", "Shortbread biscuit", "Millionaires' shortbread", "Caramel cookie", "Pecan sandy", "Moravian spice cookie", "Anzac biscuit", "Buttercake", "Pink biscuit", "Whole grain cookie", "Candy cookie", "Big chip cookie", "One chip cookie", "Sprinkles cookie", "Peanut butter blossom", "No-bake cookie", "Florentine", "Chocolate crinkle", "Maple cookie", "Persian rice cookie", "Norwegian cookie", "Crispy rice cookie", "Ube cookie", "Butterscotch cookie", "Speculaa", "Chocolate oatmeal cookie", "Molasses cookie", "Biscotti", "Waffle cookie", "Bourbon biscuit", "Mini-cookies", "Whoopie pie", "Caramel wafer biscuit", "Chocolate chip mocha cookie", "Earl Grey cookie", "Chai tea cookie", "Corn syrup cookie", "Icebox cookies", "Graham crackers", "Hardtack", "Cornflake cookie", "Deep-fried cookie dough", "Gluten-free cookie", "Russian bread cookie", "Lebkuchen", "Aachener Printen", "Canistrelli", "Nice biscuit", "French pure butter cookie", "Petit buerre", "Nanaimo bar", "Berger cookie", "Chinsuko", "Panda koala biscuits", "Putri salju", "Milk cookie", "Kruidnoten", "Marie biscuit", "Meringue cookie", "Yogurt cookie", "Thumbprint cookie", "Pizzelle", "Granola cookie", "Ricotta cookie", "Roze koeken", "Peanut butter cup cookie", "Sesame cookie", "Taiyaki", "Vanillekipferl", "Battenberg biscuit", "Rosette cookie", "Gangmaker", "Welsh cookie", "Raspberry cheesecake cookie", "Bokkenpootje", "Fat rascal", "Dalgona cookies", "Bakeberry cookie", "Duketater cookie", "Smile cookie", "Wheat slim", "Ischler cookies", "Custard cream", "Matcha cookie", "Kolachy cookie", "Gomma cookie", "Coyota", "Frosted sugar cookies", "Marshmallow sandwich cookie", "Web cookie", "Havreflarn", "Alfajore", "Gaufrette", "Cookie bar", "Snowball cookie", "Sequilho", "Hazelnut swirly", "Spritz cookie", "Mbtata cookie", "Springerle" };
     private static string[] teaBiscuitNames = new string[6] { "Tea biscuit", "Chocolate tea biscuit", "Round tea biscuit", "Chocolate round tea biscuit", "Hearted tea biscuit", "Chocolate hearted tea biscuit" };
-    private static string[] chocolateButterBiscuitNames = new string[11] { "Milk chocolate butter biscuit", "Dark chocolate butter biscuit", "White chocolate butter biscuit", "Ruby chocolate butter biscuit", "Lavender chocolate butter biscuit", "Synthetic chocolate green honey butter biscuit", "Royal raspberry chocolate butter biscuit", "Ultra-concentrated high-energy chocolate butter biscuit", "Pure pitch-black chocolate butter biscuit", "Cosmic chocolate butter biscuit", "Butter biscuit (with butter)" };
+    private static string[] chocolateButterBiscuitNames = new string[12] { "Milk chocolate butter biscuit", "Dark chocolate butter biscuit", "White chocolate butter biscuit", "Ruby chocolate butter biscuit", "Lavender chocolate butter biscuit", "Synthetic chocolate green honey butter biscuit", "Royal raspberry chocolate butter biscuit", "Ultra-concentrated high-energy chocolate butter biscuit", "Pure pitch-black chocolate butter biscuit", "Cosmic chocolate butter biscuit", "Butter biscuit (with butter)", "Everybutter biscuit" };
     private static string[] brandedNames = new string[16] { "Caramoa", "Sagalong", "Shortfoil", "Win mint", "Fig glutton", "Loreol", "Jaffa cake", "Grease's cup", "Digits", "Lombardia cookie", "Bastenaken cookie", "Festivity loops", "Havabreaks", "Zilla wafers", "Dim dam", "Pokey" };
     private static string[] danishButterCookieNames = new string[5] { "Butter horseshoe", "Butter puck", "Butter knot", "Butter slab", "Butter swirl" };
     private static string[] macaronNames = new string[9] { "Rose macaron", "Lemon macaron", "Chocolate macaron", "Pistachio macaron", "Hazelnut macaron", "Violet macaron", "Caramel macaron", "Licorice macaron", "Earl Grey macaron" };
@@ -125,11 +125,11 @@ public class bakery : MonoBehaviour
 
     private void Start()
     {
-        var allSquares = new string[31][];
-        for (int i = 0; i < 31; i++)
+        var allSquares = new string[35][];
+        for (int i = 0; i < 35; i++)
             allSquares[i] = regularCookieNames.Skip(4 * i).Take(4).ToArray();
         var probabilities = new CookieCategory[] { CookieCategory.regular, CookieCategory.regular, CookieCategory.regular, CookieCategory.regular, CookieCategory.regular, CookieCategory.regular, CookieCategory.regular, CookieCategory.teaBiscuit, CookieCategory.branded, CookieCategory.chocolateButterBiscuit, CookieCategory.danishButter, CookieCategory.macaron, CookieCategory.notCookie, CookieCategory.seasonal };
-        var maxCounts = new int[] { 124, 6, 11, 16, 5, 9, 12, 21 };
+        var maxCounts = new int[] { 140, 6, 12, 16, 5, 9, 12, 21 };
         var pointIndices = new int[][]
         {
             new int[8] { -1, -1, 1, 5, 4, -1, -1, -1 },
@@ -177,7 +177,7 @@ public class bakery : MonoBehaviour
             switch (thisCategory)
             {
                 case CookieCategory.regular:
-                    cookieIndices[i] = Enumerable.Range(0, 124).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.regular).Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 140).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.regular).Contains(x)).PickRandom();
                     allCookieNames[i] = regularCookieNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = regularCookieTextures[cookieIndices[i]];
                     break;
@@ -187,7 +187,7 @@ public class bakery : MonoBehaviour
                     cookieRenders[i].material.mainTexture = teaBiscuitTextures[cookieIndices[i]];
                     break;
                 case CookieCategory.chocolateButterBiscuit:
-                    cookieIndices[i] = Enumerable.Range(0, 11).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.chocolateButterBiscuit).Contains(x)).PickRandom();
+                    cookieIndices[i] = Enumerable.Range(0, 12).Where(x => !cookieIndices.Where((_, ix) => allCookieCategories[ix] == CookieCategory.chocolateButterBiscuit).Contains(x)).PickRandom();
                     allCookieNames[i] = chocolateButterBiscuitNames[cookieIndices[i]];
                     cookieRenders[i].material.mainTexture = chocolateButterBiscuitTextures[cookieIndices[i]];
                     break;
@@ -259,8 +259,9 @@ public class bakery : MonoBehaviour
                         var vertOffsets = new int[] { -4, 4 };
                         for (int j = 0; j < 2; j++)
                         {
-                            if ((containingSquareIx / 4 == 0 && j == 0) || (containingSquareIx / 4 == 7 && j == 1) || (j == 1 && containingSquareIx == 27))
+                            if ((containingSquareIx / 4 == 0 && j == 0) || (containingSquareIx / 4 == 8 && j == 1))
                                 continue;
+                            Debug.Log(allSquares.Length);
                             var thisVertiSquare = allSquares[containingSquareIx + vertOffsets[j]];
                             for (int k = 0; k < 4; k++)
                                 if (otherRegulars.Select(x => allCookieNames[x]).Contains(thisVertiSquare[k]))
@@ -272,7 +273,7 @@ public class bakery : MonoBehaviour
                         var horiOffsets = new int[] { -1, 1 };
                         for (int j = 0; j < 2; j++)
                         {
-                            if ((containingSquareIx % 4 == 0 && j == 0) || (containingSquareIx % 4 == 3 && j == 1) || (j == 1 && containingSquareIx == 30))
+                            if ((containingSquareIx % 4 == 0 && j == 0) || (containingSquareIx % 4 == 3 && j == 1) || (j == 1 && containingSquareIx == 34))
                                 continue;
                             var thisHoriSquare = allSquares[containingSquareIx + horiOffsets[j]];
                             for (int k = 0; k < 4; k++)
@@ -288,6 +289,11 @@ public class bakery : MonoBehaviour
                     {
                         loggingStrings.Add(string.Format("{0} (Milk chocolate butter biscuit): The milk chocolate butter biscuit is always valid.", coordinates[i]));
                         solution[i] = true;
+                    }
+                    else if (cookieIndices[i] == 11)
+                    {
+                        solution[i] = allCookieCategories.Count(c => c == CookieCategory.chocolateButterBiscuit) == 1;
+                        loggingStrings.Add(string.Format("{0} (Everybutter biscuit): This is{1} the only chocolate butter biscuit on the module, so it is {2}valid.", solution[i] ? "" : " not", solution[i] ? "" : "in"));
                     }
                     else
                     {
@@ -382,7 +388,6 @@ public class bakery : MonoBehaviour
         {
             if (allCookieCategories[i] != CookieCategory.teaBiscuit)
                 continue;
-            var crookedTeeth = RegionInfo.CurrentRegion.DisplayName == "United Kingdom";
             foreach (int ix in adjacentIndices[i])
                 platesToToggle.Add(ix);
             var edgeworkConditions = new bool[]
@@ -394,10 +399,8 @@ public class bakery : MonoBehaviour
                 IsPrime(bomb.GetModuleNames().Count()),
                 !bomb.IsPortPresent(Port.RJ45) && !bomb.IsPortPresent(Port.DVI)
             };
-            if (crookedTeeth)
-                edgeworkConditions = edgeworkConditions.Select(b => !b).ToArray();
             solution[i] = edgeworkConditions[cookieIndices[i]];
-            loggingStrings.Add(string.Format("{0} ({1}): The validities of these cookies are toggled: {2}. The bomb was{3} started in the UK, and according to the edgework condition, this cookie is {4}.", coordinates[i], allCookieNames[i], adjacentIndices[i].Select(x => coordinates[x]).Join(", "), crookedTeeth ? "" : "n't", solution[i] ? "valid" : "invalid"));
+            loggingStrings.Add(string.Format("{0} ({1}): The validities of these cookies are toggled: {2}. This cookie is {3}.", coordinates[i], allCookieNames[i], adjacentIndices[i].Select(x => coordinates[x]).Join(", "), solution[i] ? "valid" : "invalid"));
         }
         foreach (int ix in platesToToggle)
             solution[ix] = !solution[ix];
