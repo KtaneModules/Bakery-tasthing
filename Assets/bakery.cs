@@ -47,7 +47,6 @@ public class bakery : MonoBehaviour
     private string[] allCookieNames = new string[12];
     private bool[] solution = new bool[12];
     private bool[] selected = new bool[12];
-    private int lastHighlightedButton = -1;
 
     private static int moduleIdCounter = 1;
     private int moduleId;
@@ -107,9 +106,6 @@ public class bakery : MonoBehaviour
             plate.OnInteract += delegate () { PressPlate(ix); return false; };
             plate.OnHighlight += delegate ()
             {
-                if (lastHighlightedButton == ix)
-                    return;
-                lastHighlightedButton = ix;
                 plateRenders[ix].material.color = highlightColor;
                 SetHoverText(Settings.HardMode ? "???" : allCookieNames[ix]);
             };
@@ -261,7 +257,6 @@ public class bakery : MonoBehaviour
                         {
                             if ((containingSquareIx / 4 == 0 && j == 0) || ((containingSquareIx + 1) / 4 == 8 && j == 1))
                                 continue;
-                            Debug.Log(allSquares.Length);
                             var thisVertiSquare = allSquares[containingSquareIx + vertOffsets[j]];
                             for (int k = 0; k < 4; k++)
                                 if (otherRegulars.Select(x => allCookieNames[x]).Contains(thisVertiSquare[k]))
@@ -293,7 +288,7 @@ public class bakery : MonoBehaviour
                     else if (cookieIndices[i] == 11)
                     {
                         solution[i] = allCookieCategories.Count(c => c == CookieCategory.chocolateButterBiscuit) == 1;
-                        loggingStrings.Add(string.Format("{0} (Everybutter biscuit): This is{1} the only chocolate butter biscuit on the module, so it is {2}valid.", solution[i] ? "" : " not", solution[i] ? "" : "in"));
+                        loggingStrings.Add(string.Format("{0} (Everybutter biscuit): This is{1} the only chocolate butter biscuit on the module, so it is {2}valid.", coordinates[i], solution[i] ? "" : " not", solution[i] ? "" : "in"));
                     }
                     else
                     {
