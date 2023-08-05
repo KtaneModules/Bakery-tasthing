@@ -14,7 +14,9 @@ MonoBehaviour:
   id: bakery
   title: Bakery
   author: TasThiluna
-  description: "Even in the face of disaster, we are willing to sacrifice our own
+  description: "This is a reupload of a module by TasThiluna. To ensure you're on
+    the latest version of all modules, check \"Replace Obsolete Mods\" in Tweaks'
+    settings.\r\n\nEven in the face of disaster, we are willing to sacrifice our own
     elders... for cookies.\r\n\r\nModule idea and implementation by TasThiluna.\r\n\r\n[url=https://ktane.timwi.de/HTML/Bakery.html]Manual
     HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Bakery.pdf]Manual PDF[/url]"
   version: 1.3
